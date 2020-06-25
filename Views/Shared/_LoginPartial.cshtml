@@ -3,14 +3,41 @@
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+        @*<ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @User.Identity.GetUserName() <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <li><a class="dropdown-item">Gigs Going</a></li>
+                        <li><a class="dropdown-item">Artists Following</a></li>
+                        <li><a class="dropdown-item">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+
+                    </ul>
+                </li>
+            </ul>*@
+
+        <ul class="nav navbar-nav navbar-right">
+
+            <li class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @User.Identity.GetUserName() <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Gigs Going</a></li>
+                    <li>                <a class="dropdown-item" href="#">Artists Following</a>
+
+                    <li role="separator" class="divider"></li>
+                    <li>
+                        <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                    </li>
+                </ul>
+        </ul>
+
     }
 }
 else
