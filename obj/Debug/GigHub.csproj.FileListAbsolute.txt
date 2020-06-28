@@ -88,3 +88,4 @@ C:\MyData\Projects\DotNet\GigHub\obj\Debug\GigHub.Migrations.CreateGigTable.reso
 C:\MyData\Projects\DotNet\GigHub\obj\Debug\GigHub.Migrations.OverrideConventionsForGigsAndGanre.resources
 C:\MyData\Projects\DotNet\GigHub\obj\Debug\GigHub.Migrations.PopulateGenreTable.resources
 C:\MyData\Projects\DotNet\GigHub\obj\Debug\GigHub.Migrations.ForeignKeyToGigs.resources
+C:\MyData\Projects\DotNet\GigHub\obj\Debug\GigHub.Migrations.AddNameToApplicationUser.resources
