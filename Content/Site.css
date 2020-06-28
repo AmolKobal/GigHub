@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 90px;
     padding-bottom: 20px;
     font-size: 17px;
 }
@@ -23,24 +23,24 @@ select,
 textarea {
     max-width: 280px;
 }
- 
+
 span.field-validation-error {
     color: red;
 }
- 
+
 /* Bootstrap Overrides */
 .navbar-inverse {
     background-color: #1d6aab; /* #ff4342; */
     border-color: #0e2687;
 }
 
-.navbar-inverse .navbar-nav > li > a {
-    color: #ffffff;
-}
+    .navbar-inverse .navbar-nav > li > a {
+        color: #ffffff;
+    }
 
-.navbar-inverse .navbar-brand {
-    color: #ffffff;
-}
+    .navbar-inverse .navbar-brand {
+        color: #ffffff;
+    }
 
     .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
         background-color: #0d497b; /* rgba(205, 40, 39, 0.55); */
@@ -80,3 +80,52 @@ body,
     border-color: #faafe9;
 }
 
+
+/* Page-Specific Styles */
+
+.gigs {
+    list-style: none;
+}
+
+.gigs > li {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.gigs > li .date {
+    background-color: #0d497b;
+    color: white;
+    text-align: center;
+    width: 80px;
+    border-radius: 8px;
+}
+
+.gigs > li .month {
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 4px 6px;
+    font-weight: bold;
+}
+
+.gigs > li .day {
+    background-color: #f7f7f7;
+    color: #333;
+    font-size: 20px;
+    padding: 6px 12px;
+    font-weight: bold;
+}
+
+.gigs > li .details {
+    position: absolute;
+    top: 0;
+    left: 120px;
+}
+
+.gigs > li .details .artist {
+    font-weight:bold;
+    display: block;
+}
+
+.gigs > li .details .ganre {
+    font-size: 15px;
+}
