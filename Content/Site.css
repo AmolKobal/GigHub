@@ -23,11 +23,15 @@ select,
 textarea {
     max-width: 280px;
 }
-
+ 
+span.field-validation-error {
+    color: red;
+}
+ 
 /* Bootstrap Overrides */
 .navbar-inverse {
-    background-color: #ff4342;
-    border-color: #ff4342;
+    background-color: #1d6aab; /* #ff4342; */
+    border-color: #0e2687;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -38,9 +42,9 @@ textarea {
     color: #ffffff;
 }
 
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-    background-color: rgba(205, 40, 39, 0.55);
-}
+    .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+        background-color: #0d497b; /* rgba(205, 40, 39, 0.55); */
+    }
 
 .navbar-brand {
     font-weight: 700;
@@ -75,3 +79,4 @@ body,
 .form-control:focus {
     border-color: #faafe9;
 }
+
