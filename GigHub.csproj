@@ -223,6 +223,7 @@
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\RegisterViewModel.cs" />
     <Compile Include="ViewModel\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModel\VerifyCodeViewModel.cs" />

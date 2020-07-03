@@ -50,6 +50,11 @@ span.field-validation-error {
     font-weight: 700;
 }
 
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: #fff;
+    background-color: #123;
+}
+
 body,
 .popover,
 .tooltip {
@@ -141,7 +146,19 @@ body,
     left: 300px;
 }
 
-.error {
-    font-size: 14px;
-    color: red;
+
+.gig-footer {
+    background-color: #07243c;/*#e0eff6;*/
+    color: white; /*#0d497b;*/
+    padding-top: 15px;
+    padding-left: 80%;
+    height: 60px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px outset #accae3;
+    font-size: 16px;
+    font-family: 'Trebuchet MS';
 }

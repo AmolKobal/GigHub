@@ -1,12 +1,11 @@
-﻿@model IEnumerable<GigHub.Models.Gig>
+﻿@model GigHub.ViewModel.HomeViewModel
 @{
     ViewBag.Title = "Home Page";
 }
 
-<div id="error" class="error">\u00A0\u00A0\u00A0</div>
-<br />
+<div id="error" class="text-danger">\u00A0\u00A0\u00A0</div> 
 <ul class="gigs">
-    @foreach (var gig in Model)
+    @foreach (var gig in Model.UpcomingGigs)
     {
         <li>
             <div class="date">
@@ -15,16 +14,20 @@
             </div>
             <div class="details">
                 <span class="artist">@gig.Artist.Name</span>
-                <span class="ganre">@gig.Genre.Name</span>                
+                <span class="ganre">@gig.Genre.Name</span>
             </div>
-            <div class="going">
-                <button data-gig-id="@gig.Id" class="btn btn-default btn-sm pull-right js-toggle-attendance">Going?</button>
-            </div>
+            @if (Model.ShowActions)
+            {
+                <div class="going">
+                    <button data-gig-id="@gig.Id" class="btn btn-default btn-sm pull-right js-toggle-attendance">Going?</button>
+                </div>
+            }
             <span>&nbsp;</span>
         </li>
     }
 </ul>
-
+<br />
+<br />
 @section scripts
 {
     <script>
@@ -32,7 +35,7 @@
             $("#error").text("\u00A0\u00A0\u00A0");
             $(".js-toggle-attendance").click(function(e) {
                 $("#error").text("\u00A0\u00A0\u00A0");
-                var btn = $(e.target);                 
+                var btn = $(e.target);
                 $.post("/api/attendances", { gigId: btn.attr("data-gig-id") })
                     .done(function() {
                         btn.removeClass("btn-default")
@@ -41,7 +44,7 @@
                     })
                     .fail(function(jqXHR, textStatus, ex) {
                         var responseText = jQuery.parseJSON(jqXHR.responseText);
-                        $("#error").text(responseText.Message);
+                        $("#error").html(responseText.Message);
                         //alert(responseText.Message);
                 });
             });

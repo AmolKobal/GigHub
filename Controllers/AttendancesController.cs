@@ -43,7 +43,7 @@ namespace GigHub.Controllers
                 //catch { }
 
                 //return BadRequest($"Already planned to attend the Gig at {gig.Venue} on {schedule}");
-                return BadRequest($"Already planned to attend {gig.Artist.Name}'s {gig.Genre.Name} at {gig.Venue} on {schedule}");
+                return BadRequest($"Already planned to attend <b>{gig.Artist.Name}</b>'s <strong><i>{gig.Genre.Name}</i></strong> at {gig.Venue} on <u>{schedule}</u>");
             }
 
             var attendance = new Attendance
