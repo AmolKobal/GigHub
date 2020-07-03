@@ -2,8 +2,9 @@
 @{
     ViewBag.Title = "Home Page";
 }
- 
 
+<div id="error" class="error">\u00A0\u00A0\u00A0</div>
+<br />
 <ul class="gigs">
     @foreach (var gig in Model)
     {
@@ -15,7 +16,33 @@
             <div class="details">
                 <span class="artist">@gig.Artist.Name</span>
                 <span class="ganre">@gig.Genre.Name</span>
+                <button data-gig-id="@gig.Id" class="btn btn-default btn-sm pull-right js-toggle-attendance">Going?</button>
             </div>
+            <span>&nbsp;</span>
         </li>
     }
 </ul>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("#error").text("\u00A0\u00A0\u00A0");
+            $(".js-toggle-attendance").click(function(e) {
+                $("#error").text("\u00A0\u00A0\u00A0");
+                var btn = $(e.target);                 
+                $.post("/api/attendances", { gigId: btn.attr("data-gig-id") })
+                    .done(function() {
+                        btn.removeClass("btn-default")
+                           .addClass("btn-info")
+                           .text("Going");
+                    })
+                    .fail(function(jqXHR, textStatus, ex) {
+                        var responseText = jQuery.parseJSON(jqXHR.responseText);
+                        $("#error").text(responseText.Message);
+                        //alert(responseText.Message);
+                });
+            });
+        });
+    </script>
+}

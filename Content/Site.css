@@ -67,8 +67,10 @@ body,
 }
 
 .btn {
-    font-size: 17px;
-    padding: 8px 20px;
+    /* 
+        font-size: 17px;
+        padding: 8px 20px;  
+    */
     border-radius: 9px;
 }
 
@@ -89,15 +91,18 @@ body,
 
 .gigs > li {
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    width: 400px;
+    border-bottom: solid 1px #c3e1f1;
 }
 
 .gigs > li .date {
-    background-color: #0d497b;
+    background-color: #227bc6; /* #55d0aa; */
     color: white;
     text-align: center;
     width: 80px;
     border-radius: 8px;
+    margin-left:15px;
 }
 
 .gigs > li .month {
@@ -128,4 +133,9 @@ body,
 
 .gigs > li .details .ganre {
     font-size: 15px;
+}
+
+.error {
+    font-size: 14px;
+    color: red;
 }
