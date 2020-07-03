@@ -135,6 +135,12 @@ body,
     font-size: 15px;
 }
 
+.gigs > li .going {
+    position: absolute;
+    top: 25px;
+    left: 300px;
+}
+
 .error {
     font-size: 14px;
     color: red;

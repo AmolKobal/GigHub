@@ -1,6 +1,7 @@
 ﻿using GigHub.Dtos;
 using GigHub.Models;
 using Microsoft.AspNet.Identity;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
 
@@ -23,18 +24,26 @@ namespace GigHub.Controllers
 
             if (_context.Attendances.Any(a => a.AttendeeId == userId && a.GigId == dto.GigId))
             {
-                var gig = _context.Gigs.First(g => g.Id == dto.GigId);
-                var schedule = gig.Datetime.ToString("dd MMM yyyy, hh:mm tt");                
-                try
-                {
-                    var ganre = _context.Genres.First(g => g.Id == gig.GenreId);
-                    var artist = _context.Users.First(u => u.Id == gig.ArtistId);
+                //var gig = _context.Gigs.First(g => g.Id == dto.GigId);
 
-                    return BadRequest($"Already planned to attend {artist.Name}'s {ganre.Name} at {gig.Venue} on {schedule}");
-                }
-                catch { }
+                var gigs = _context.Gigs
+                    .Include(g => g.Artist)
+                    .Include(g => g.Genre)
+                    .Where(g => g.Id == dto.GigId);
 
-                return BadRequest($"Already planned to attend the Gig at {gig.Venue} on {schedule}");
+                var gig = gigs.First();   
+                var schedule = gig.Datetime.ToString("dd MMM yyyy, hh:mm tt");
+                //try
+                //{
+                //    //var ganre = _context.Genres.First(g => g.Id == gig.GenreId);
+                //    //var artist = _context.Users.First(u => u.Id == gig.ArtistId);
+
+                //    //return BadRequest($"Already planned to attend {artist.Name}'s {ganre.Name} at {gig.Venue} on {schedule}");
+                //}
+                //catch { }
+
+                //return BadRequest($"Already planned to attend the Gig at {gig.Venue} on {schedule}");
+                return BadRequest($"Already planned to attend {gig.Artist.Name}'s {gig.Genre.Name} at {gig.Venue} on {schedule}");
             }
 
             var attendance = new Attendance
