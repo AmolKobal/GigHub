@@ -1,0 +1,55 @@
+﻿@model GigHub.ViewModel.GigsViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="gig-header"><strong>@Model.Heading (@Model.UpcomingGigs.Count()) </strong></div>
+
+<div id="error" class="text-danger">\u00A0\u00A0\u00A0</div>
+<ul class="gigs">
+    @foreach (var gig in Model.UpcomingGigs)
+    {
+        <li>
+            <div class="date">
+                <div class="month">@gig.Datetime.ToString("MMM")</div>
+                <div class="day">@gig.Datetime.ToString("d ")</div>
+            </div>
+            <div class="details">
+                <span class="artist">@gig.Artist.Name</span>
+                <span class="ganre">@gig.Genre.Name</span>
+            </div>
+            @if (Model.ShowActions)
+            {
+                <div class="going">
+                    <button data-gig-id="@gig.Id" class="btn btn-default btn-sm pull-right js-toggle-attendance">Going?</button>
+                </div>
+            }
+            <span>&nbsp;</span>
+        </li>
+    }
+</ul>
+<br />
+<br />
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("#error").text("\u00A0\u00A0\u00A0");
+            $(".js-toggle-attendance").click(function(e) {
+                $("#error").text("\u00A0\u00A0\u00A0");
+                var btn = $(e.target);
+                $.post("/api/attendances", { gigId: btn.attr("data-gig-id") })
+                    .done(function() {
+                        btn.removeClass("btn-default")
+                           .addClass("btn-info")
+                           .text("Going");
+                    })
+                    .fail(function(jqXHR, textStatus, ex) {
+                        var responseText = jQuery.parseJSON(jqXHR.responseText);
+                        $("#error").html(responseText.Message);
+                        //alert(responseText.Message);
+                });
+            });
+        });
+    </script>
+}

@@ -4,10 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Add a Gig</h2>
+<div class="gig-header"><strong>New Gig</strong></div>
+
 @using (Html.BeginForm("Create", "Gigs"))
 {
-    <p class="alert alert-info">All fields are <strong>required</strong></p>
+<p class="gig-alert gig-alert-info"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * All fields are <strong>required</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
     @Html.AntiForgeryToken()
     <div class="form-group">
         @Html.LabelFor(m => m.Venue)

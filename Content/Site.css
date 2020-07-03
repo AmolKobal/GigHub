@@ -28,6 +28,30 @@ span.field-validation-error {
     color: red;
 }
 
+.verticleOffsetSm1 {
+    margin-top: 2px;
+}
+
+.verticleOffsetSm2 {
+    margin-top: 5px;
+}
+
+.verticleOffsetMd1 {
+    margin-top: 10px;
+}
+
+.verticleOffsetMd2 {
+    margin-top: 20px;
+}
+
+.verticleOffsetBg1 {
+    margin-top: 40px;
+}
+
+.verticleOffsetBg2 {
+    margin-top: 80px;
+}
+
 /* Bootstrap Overrides */
 .navbar-inverse {
     background-color: #1d6aab; /* #ff4342; */
@@ -52,7 +76,7 @@ span.field-validation-error {
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
     color: #fff;
-    background-color: #123;
+    background-color: #10355a;
 }
 
 body,
@@ -161,4 +185,27 @@ body,
     border-top: 1px outset #accae3;
     font-size: 16px;
     font-family: 'Trebuchet MS';
+}
+
+.gig-header {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 20px;
+    color: #1d6aab
+}
+
+.gig-alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #227bc6;
+}
+
+.gig-alert {
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 12px;
+    display: inline-block;
 }
